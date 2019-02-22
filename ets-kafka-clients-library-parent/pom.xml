@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.kaufhof.ets</groupId>
+        <artifactId>ets-poms-library-parent</artifactId>
+        <version>[0.4,1)</version>
+        <relativePath />
+    </parent>
+
+    <groupId>de.kaufhof.ets.kafkaclients</groupId>
+    <artifactId>ets-kafka-clients-library-parent</artifactId>
+    <version>4.2-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <kafka.client.version>2.1.0</kafka.client.version>
+        <avro.version>1.8.2</avro.version>
+        <bijection.version>0.9.6</bijection.version>
+
+        <akka.stream.kafka.version>0.22</akka.stream.kafka.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka.client.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>${avro.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.twitter</groupId>
+                <artifactId>bijection-avro_${ets.scala.compat.version}</artifactId>
+                <version>${bijection.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.typesafe.akka</groupId>
+                <artifactId>akka-stream-kafka_${ets.scala.compat.version}</artifactId>
+                <version>${akka.stream.kafka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${ets.logback.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <scm>
+        <url>https://github.com/Galeria-Kaufhof/ets-kafka-clients</url>
+        <connection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-clients.git</connection>
+        <developerConnection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-clients.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>galeria-kaufhof</id>
+            <name>Galeria Kaufhof</name>
+            <url>https://github.com/Galeria-Kaufhof</url>
+        </developer>
+    </developers>
+
+</project>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://tech.kaufhof.io/xsds/ets-kafka-topic-config-manager/topic-0.0.3.xsd">
+    <name>de.kaufhof.ets.kafkaclients.test.event.withkey.AvroTopicDefinitionTestEvent-v1</name>
+    <environments>
+        <environment name="test">
+            <properties>
+                <configs>
+                    <cleanup.policy>
+                        <delete retention.ms="604800000"/>
+                    </cleanup.policy>
+                    <min.insync.replicas>1</min.insync.replicas>
+                </configs>
+                <replication-factor>1</replication-factor>
+                <partitions>16</partitions>
+            </properties>
+        </environment>
+    </environments>
+</topic>

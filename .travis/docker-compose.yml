@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+
+  kafka:
+    image: confluentinc/cp-kafka:5.0.1
+    networks:
+      kafka:
+        ipv4_address: 172.16.241.10
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: "PLAINTEXT://172.16.241.10:9092"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://172.16.241.10:9092"
+      KAFKA_BROKER_ID: 0
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+
+  zookeeper:
+    image: zookeeper:3.4
+    networks:
+      kafka:
+        ipv4_address: 172.16.241.9
+
+  kafkatopicconfigmanager:
+    image: galeriakaufhof/ets-kafka-topic-config-manager:file-folder
+    networks:
+      kafka:
+        ipv4_address: 172.16.241.8
+    depends_on:
+      - kafka
+    environment:
+      JAVA_OPTS: -Denvironments.0.name=test -Denvironments.0.bootstrapServers=172.16.241.10:9092 -Dfile.folder.path=/tmp/topics -DautoApply=true
+    volumes:
+      - ./topics/:/tmp/topics/
+
+networks:
+  kafka:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.241.0/24
+          gateway: 172.16.241.1

@@ -1,0 +1,18 @@
+@namespace("de.kaufhof.ets.kafkaclients.test.state")
+
+protocol TestState_v1 {
+
+  record Foo_v1 {
+    int bar;
+  }
+
+  record TestStateKey_v1 {
+    string tenantId;
+    string entityId;
+  }
+
+  record TestStateValue_v1 {
+    string bar;
+    array<Foo_v1> fooList;
+  }
+}

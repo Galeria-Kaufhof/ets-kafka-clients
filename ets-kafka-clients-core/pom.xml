@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.kaufhof.ets.kafkaclients</groupId>
+        <artifactId>ets-kafka-clients-library-parent</artifactId>
+        <version>4.2-SNAPSHOT</version>
+        <relativePath>../ets-kafka-clients-library-parent</relativePath>
+    </parent>
+
+    <artifactId>ets-kafka-clients-core</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_${ets.scala.compat.version}</artifactId>
+            <version>${ets.scalatest.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+    </dependencies>
+
+    <scm>
+        <url>https://github.com/Galeria-Kaufhof/ets-kafka-clients</url>
+        <connection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-clients.git</connection>
+        <developerConnection>scm:git:git@github.com:Galeria-Kaufhof/ets-kafka-clients.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>galeria-kaufhof</id>
+            <name>Galeria Kaufhof</name>
+            <url>https://github.com/Galeria-Kaufhof</url>
+        </developer>
+    </developers>
+
+</project>

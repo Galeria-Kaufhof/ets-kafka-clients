@@ -1,0 +1,25 @@
+sudo: required
+
+services:
+  - docker
+
+language: scala
+
+jdk:
+  - openjdk8
+# Disabled temporarily due to https://github.com/mojohaus/jaxb2-maven-plugin/issues/43
+#- openjdk11
+
+env:
+  MVN_VERSION="3.6.0"
+
+
+before_install:
+  - curl https://archive.apache.org/dist/maven/maven-$(echo $MVN_VERSION | cut -d '.' -f1)/$MVN_VERSION/binaries/apache-maven-$MVN_VERSION-bin.tar.gz | tar -xzv -C /tmp
+  - export M2_HOME=/tmp/apache-maven-$MVN_VERSION
+  - export PATH=$M2_HOME/bin:$PATH
+  - docker-compose -f .travis/docker-compose.yml up -d
+
+branches:
+  only:
+- master

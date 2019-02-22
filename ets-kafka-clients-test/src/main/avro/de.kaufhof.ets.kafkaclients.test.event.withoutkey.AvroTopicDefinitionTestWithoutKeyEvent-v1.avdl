@@ -1,0 +1,15 @@
+@namespace("de.kaufhof.ets.kafkaclients.test.event.withoutkey")
+
+protocol AvroTopicDefinitionTestWithoutKeyEvent_v1 {
+
+  record AvroTopicDefinitionFoo_v1 {
+    int bar;
+  }
+
+  record AvroTopicDefinitionTestWithoutKeyEventValue_v1 {
+    string tenantId;
+    string entityId;
+    string bar;
+    array<AvroTopicDefinitionFoo_v1> fooList;
+  }
+}

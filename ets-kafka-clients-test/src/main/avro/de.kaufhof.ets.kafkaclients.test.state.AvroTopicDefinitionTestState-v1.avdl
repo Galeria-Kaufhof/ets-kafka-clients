@@ -1,0 +1,18 @@
+@namespace("de.kaufhof.ets.kafkaclients.test.state")
+
+protocol AvroTopicDefinitionTestState_v1 {
+
+  record AvroTopicDefinitionFoo_v1 {
+    int bar;
+  }
+
+  record AvroTopicDefinitionTestStateKey_v1 {
+    string tenantId;
+    string entityId;
+  }
+
+  record AvroTopicDefinitionTestStateValue_v1 {
+    string bar;
+    array<AvroTopicDefinitionFoo_v1> fooList;
+  }
+}
