@@ -1,4 +1,4 @@
-sudo: required
+sudo: false
 
 services:
   - docker
@@ -6,7 +6,7 @@ services:
 language: scala
 
 jdk:
-  - openjdk8
+- openjdk8
 # Disabled temporarily due to https://github.com/mojohaus/jaxb2-maven-plugin/issues/43
 #- openjdk11
 
@@ -22,4 +22,4 @@ before_install:
 
 branches:
   only:
-- master
+  - master
