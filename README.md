@@ -2,6 +2,31 @@
 
 Kafka client library that adds de/serialization and versioning semantics to the official Kafka Clients library.
 
+## Modules
+
+Currently, you can use four different modules:
+
+* ets-kafka-clients-akka-stream
+* ets-kafka-clients-avro
+* ets-kafka-clients-core
+* ets-kafka-clients-test
+
+### ets-kafka-clients-akka-stream
+
+This module contains helper to create [Akka Stream Kafka](https://doc.akka.io/docs/akka-stream-kafka/current/) `Flow`s and `Source`s.
+
+### ets-kafka-clients-avro
+
+This module contains de/serializers for `Avro` using `Twitter Bijection`.
+
+### ets-kafka-clients-core
+
+This module contains the core functionality like different `KafkaMessageProtocol`s, configuration wrappers and a simple consumer and producer.
+
+### ets-kafka-clients-test
+
+You can find examples at the `ets-kafka-clients-test` module.
+
 ## De/serialization
 
 This library introduces three types of topics, these are
